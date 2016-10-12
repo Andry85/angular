@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="exempleApp">
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+<!--build:css css/styles.min.css-->
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/print.css">
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+<!--endbuild-->
+<script src="libs/angular/angular.min.js"></script>
+<script type="text/javascript">
+	
+
+	
+	angular.module("exempleApp", [])
+	.controller("defaultCtrl", function($scope){
+		
+		$scope.items = [
+			{name: "Item 1", price: 10.9, category: "Category 1", count: 10, tax: 1.12, expretion: 10},
+			{name: "Item 2", price: 1.1, category: "Category 1", count: 8, tax: 0.55, expretion: 12},
+			{name: "Item 3", price: 2.6, category: "Category 2", count: 7, tax: 0.22, expretion: 5},
+			{name: "Item 4", price: 17.5, category: "Category 2", count: 33, tax: 2.77, expretion: 10}
+		];
+
+		
+	});
+
+</script>
+</head>
+<body ng-controller="defaultCtrl">
+
+<div class="container">
+	
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>
+				Item in the cart
+				<span class="label label-info">{{items.length}}</span>
+			</h3>
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Category</th>
+					<th>Count</th>
+					<th>Tax</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<td>{{item.name}}</td>
+					<td>{{item.price | currency : "UA"}}</td>
+					<td>{{item.category}}</td>
+					<td>{{item.count}}</td>
+					<td>{{item.tax}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+
+
+<!--build:js js/main.min.js -->
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="js/lib/a-library.js"></script>
+<script src="js/lib/another-library.js"></script>
+<script src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

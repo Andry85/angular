@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="SampleApp">
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+<!--build:css css/styles.min.css-->
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/print.css">
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+<!--endbuild-->
+<script src="libs/angular/angular.min.js"></script>
+<script type="text/javascript">
+	
+
+	//Module
+	var app = angular.module("SampleApp", []);
+
+	//Controller
+	app.controller("SampleAppCtrl", function($scope){
+		
+		$scope.items = [
+			{
+				name: "Item 1",
+				value: "Value 1"
+			},
+			{
+				name: "Item 2",
+				value: "Value 2"
+			},
+			{
+				name: "Item 3",
+				value: "Value 3"
+			}
+		];
+		
+	});
+
+</script>
+</head>
+<body ng-controller="SampleAppCtrl">
+
+	<div> There are {{items.length}} items</div>
+	<div> There are <span ng-bind="items.length"></span> items</div>
+
+	<div ng-bind-template="First item: {{items[0].name}}. Second item: {{items[1].name}}"></div>
+
+	<div ng-non-bindable>
+		{{1+2}}
+	</div>
+	
+
+
+<!--build:js js/main.min.js -->
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="js/lib/a-library.js"></script>
+<script src="js/lib/another-library.js"></script>
+<script src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

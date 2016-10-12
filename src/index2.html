@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="SampleApp">
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+<!--build:css css/styles.min.css-->
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/print.css">
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+<!--endbuild-->
+<script src="libs/angular/angular.min.js"></script>
+<script type="text/javascript">
+	
+
+	//Module
+	var app = angular.module("SampleApp", []);
+
+	//Controller
+	app.controller("SampleAppCtrl", function($scope){
+		
+		$scope.hideElem1 = false;
+		$scope.hideElem2 = false;
+		$scope.hideElem3 = false;
+		
+	});
+
+</script>
+<style type="text/css">
+	div {
+		display: inline-block;
+		border: 1px solid gray;
+		border-radius: 3px;
+		margin: 14px;
+		padding: 30px;
+	}
+
+	#d1 {background-color: lightgreen;}
+	#d2 {background-color: lightblue;}
+	#d3 {background-color: lightcoral;}
+</style>
+</head>
+<body ng-controller="SampleAppCtrl">
+
+	<div>
+		<input type="checkbox" ng-model="hideElem1"> Hide element 1<br>
+		<input type="checkbox" ng-model="hideElem2"> Hide element 2<br>
+		<input type="checkbox" ng-model="hideElem3"> Hide element 3
+	</div>
+
+	<div id="d1" ng-hide="hideElem1">Element 1</div>
+	<div id="d2" ng-hide="hideElem2">Element 2</div>
+	<div id="d3" ng-hide="hideElem3">Element 3</div>
+	
+
+
+<!--build:js js/main.min.js -->
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="js/lib/a-library.js"></script>
+<script src="js/lib/another-library.js"></script>
+<script src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>
